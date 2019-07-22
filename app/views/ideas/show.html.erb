@@ -1,0 +1,59 @@
+<div class="form-padding mt-3">
+    <h2><%= @idea.title %></h2>
+    <p><%= @idea.description %></p>
+    <small>
+        <p>
+            Written by <%= @idea.user&.username %>
+            <%= time_ago_in_words @idea.created_at %> ago
+        </p>
+
+        <div><%= @idea.likes.count %></div>
+        <% like = @idea.likes.find_by(user: current_user) %>
+        <% if like.present? %>
+        <%= link_to "Un-like", idea_like_path(@idea, like), method: :delete%>
+        <% else %>
+        <%= link_to "Like", idea_likes_path(@idea), method: :post%>
+        <% end %>
+
+        <% if can? :crud, @idea %>
+        <%= link_to 'Edit', edit_idea_path(@idea) %>
+        |
+        <%= 
+        link_to 'Delete', 
+        idea_path(@idea), 
+        method: :delete,
+        data: { confirm: "Are you sure you want to delete #{@idea.title}?" }
+    %>
+        <% end %>
+    </small>
+    <hr>
+
+    <h3>Reviews</h3>
+    <% @reviews.each do |review| %>
+    <p><%= review.body %></p>
+    <small>
+        Posted by <%= @idea.user&.username %>
+        <%= time_ago_in_words @idea.created_at %> ago
+        <% if can? :crud, review %>
+        <%=
+                    link_to 'Delete',
+                    idea_review_path(@idea, review), 
+                    method: :delete, 
+                    data: {
+                        confirm: "Are you sure?"
+                    }
+                %>
+        <% end %>
+    </small>
+    <hr>
+    <% end %>
+    <div class="form-group my-4">
+        <h4>Leave a Review</h4>
+        <%= form_with model: [@idea, @review], local: true do |f| %>
+        <div>
+            <%= f.text_area :body, class: "form-control"%>
+        </div>
+        <%= f.submit "leave a review", class: "btn btn-outline-primary mt-3" %>
+    </div>
+    <% end %>
+</div>

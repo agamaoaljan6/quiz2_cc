@@ -1,0 +1,16 @@
+<%= form_with(model: @idea, local: true) do |f| %>
+
+<div class="form-padding mt-3">
+    <div class="form-group">
+        <%= f.label :title %>
+        <%= f.text_field :title, class: "form-control" %>
+    </div>
+
+
+    <div class="form-group">
+        <%= f.label :description %>
+        <%= f.text_area :description, class: "form-control" %>
+    </div>
+</div>
+<%= f.submit class: "btn btn-outline-primary mr-5 offset-4"%>
+<% end %>
