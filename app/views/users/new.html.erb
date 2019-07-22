@@ -2,7 +2,7 @@
     <h1 class="mt-2">Sign Up</h1>
 
     <%= form_with model: @user, local: true do |f| %>
-    <%= render  "layouts/message", obj: @user %>
+
     <div class="form-group mt-3">
         <%= f.label :username %>
         <%= f.text_field :username, class: "form-control"  %>
