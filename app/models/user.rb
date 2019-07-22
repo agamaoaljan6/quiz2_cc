@@ -12,7 +12,7 @@ class User < ApplicationRecord
         :username, 
         presence: true,
         uniqueness: true,
-        length: { minimum: 10 }
+        length: { minimum: 4 }
     )
 
     validates(
