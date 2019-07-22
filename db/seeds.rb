@@ -6,7 +6,7 @@ User.delete_all
 10.times do
     User.create(
         username: Faker::Name.unique.name,
-        email: "@example.com",
+        email: "#{Faker::Name.unique.name}@example.com",
         password: 'supersecret'
     )
 end
@@ -22,7 +22,7 @@ users = User.all
     )
     if i.valid?
         i.reviews = rand(0..15).times.map do
-            Answer.new(
+            Review.new(
                 body: Faker::Hipster.sentence,
                 user: users.sample
             )

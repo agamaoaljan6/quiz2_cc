@@ -4,6 +4,6 @@ class Review < ApplicationRecord
 
   validates(
     :body,
-    length: { minimum: 15 }
+    length: { minimum: 10 }
   )
 end

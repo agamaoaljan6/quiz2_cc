@@ -6,7 +6,7 @@ class Idea < ApplicationRecord
   
   validates(:title, presence: true)
 
-  validates(:description, length: { minimum: 8 })
+  validates(:description, length: { minimum: 10 })
 
   before_validation :capitalize_title
 
