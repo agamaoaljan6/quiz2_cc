@@ -14,4 +14,41 @@
  *= require_self
  */
 
- @import 'bootstrap';
+@import 'bootstrap';
+
+.navbar-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-height {
+    height: 7rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+}
+@media (min-width: 768px) {
+    .form-padding {
+        padding-right: 5rem;
+        padding-left: 5rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .form-padding {
+        padding-right: 10rem;
+        padding-left: 10rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .form-padding {
+        padding-right: 20rem;
+        padding-left: 20rem;
+    }
+}

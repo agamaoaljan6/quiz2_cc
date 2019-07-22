@@ -1,9 +1,17 @@
-<% @ideas.each do |idea| %>
-<h2><%= link_to idea.title, idea_path(idea) %></h2>
-<p><%= idea.description %></p>
-<p>
-    Written by <%= idea.user&.username %>
-    <%= time_ago_in_words idea.created_at %> ago
-</p>
-<hr>
-<% end %>
+<div class="column">
+    <% @ideas.each do |idea| %>
+    <div class="col-sm-12 mb-3 center">
+        <div class="card">
+            <div class="card-body card-height">
+                <h2><%= link_to idea.title, idea_path(idea) %></h2>
+                <p><%= idea.description %></p>
+                <p>
+                    Written by <%= idea.user&.username %>
+                    <%= time_ago_in_words idea.created_at %> ago
+                </p>
+                <hr>
+            </div>
+        </div>
+    </div>
+    <% end %>
+</div>
