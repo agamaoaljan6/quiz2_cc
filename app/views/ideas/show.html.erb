@@ -5,6 +5,15 @@
         Written by <%= @idea.user&.username %>
         <%= time_ago_in_words @idea.created_at %> ago
     </p>
+
+    <div><%= @idea.likes.count %></div>
+    <% like = @idea.likes.find_by(user: current_user) %>
+    <% if like.present? %>
+    <%= link_to "Un-like", idea_like_path(@idea, like), method: :delete%>
+    <% else %>
+    <%= link_to "Like", idea_likes_path(@idea), method: :post%>
+    <% end %>
+
     <% if can? :crud, @idea %>
     <%= link_to 'Edit', edit_idea_path(@idea) %>
     |
