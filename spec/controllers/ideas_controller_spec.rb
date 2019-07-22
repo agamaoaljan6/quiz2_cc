@@ -77,7 +77,7 @@ RSpec.describe IdeasController, type: :controller do
                     }
                   )
                 end
-                it "doesn't create a job post" do
+                it "doesn't create a post" do
                   count_before = Idea.count
                   invalid_request
                   count_after = Idea.count
