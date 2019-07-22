@@ -28,10 +28,6 @@
     text-overflow: ellipsis;
 }
 
-.btn {
-    display: flex;
-    justify-content: center;
-}
 @media (min-width: 768px) {
     .form-padding {
         padding-right: 5rem;
@@ -49,6 +45,6 @@
 @media (min-width: 1200px) {
     .form-padding {
         padding-right: 20rem;
-        padding-left: 20rem;
+        padding-left: 19rem;
     }
 }

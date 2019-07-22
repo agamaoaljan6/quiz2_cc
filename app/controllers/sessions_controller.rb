@@ -9,16 +9,17 @@ class SessionsController < ApplicationController
             # if user && user.authenticate params[:password]
             # The 'session' is an object useable in controllers that uses cookies to store encrypted data. To sign in a user, we store their user_id in the session for later retrieval
             session[:user_id] = user.id
-            redirect_to root_path, notice: 'Logged in'
+            flash[:success] = 'Logged in'
+            redirect_to root_path
         else
-            flash[:alert] = "Wrong email or password"
+            flash[:danger] = "Wrong email or password"
             render :new
         end
     end
 
     def destroy
         session[:user_id] = nil
-        flash[:notice] = 'Logged out'
+        flash[:danger] = 'Logged out'
         redirect_to root_path 
     end
 end

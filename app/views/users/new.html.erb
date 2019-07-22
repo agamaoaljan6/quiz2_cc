@@ -1,6 +1,8 @@
 <div class="form-padding">
-<h1 class="mt-2">Sign Up</h1>
-<%= form_with model: @user, local: true do |f| %>
+    <h1 class="mt-2">Sign Up</h1>
+
+    <%= form_with model: @user, local: true do |f| %>
+    <%= render  "layouts/message", obj: @user %>
     <div class="form-group mt-3">
         <%= f.label :username %>
         <%= f.text_field :username, class: "form-control"  %>
@@ -17,6 +19,6 @@
         <%= f.label :password_confirmation %>
         <%= f.password_field :password_confirmation, class: "form-control"  %>
     </div>
-        <%= f.submit "Sign Up", class: "btn btn-outline-primary mr-2 mt-5"%>
-<% end %> 
+    <%= f.submit "Sign Up", class: "btn btn-outline-primary mr-2 mt-5"%>
+    <% end %>
 </div>

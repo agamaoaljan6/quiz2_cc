@@ -1,7 +1,5 @@
 <%= form_with(model: @idea, local: true) do |f| %>
-<% if @idea.errors.present? %>
-<%= @idea.errors.full_messages.join(", ") %>
-<% end %>
+
 <div class="form-padding mt-3">
     <div class="form-group">
         <%= f.label :title %>
